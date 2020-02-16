@@ -96,5 +96,8 @@ auth.json
 # Virtual Envs
 venv/
 
+# Log file
+archer.log
+
 # End of https://www.gitignore.io/api/pycharm
 
