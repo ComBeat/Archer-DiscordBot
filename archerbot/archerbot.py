@@ -1,6 +1,15 @@
-import discord
 import json
+import logging
 from io import FileIO
+
+import discord
+
+logger = logging.getLogger('discord')
+logger.setLevel(logging.WARNING)
+# TODO Use sys/os funcs to specify log path
+handler = logging.FileHandler(filename='../archer.log', encoding='utf-8', mode='w')
+handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+logger.addHandler(handler)
 
 # TODO Use sys/os funcs to locate auth file
 auth_file = FileIO('../auth.json', mode='r')
