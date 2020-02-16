@@ -1,13 +1,17 @@
 import discord
+import json
+from io import FileIO
 
+# TODO Use sys/os funcs to locate auth file
+auth_file = FileIO('../auth.json', mode='r')
+bot_token = json.load(auth_file)['bot_token']
 client = discord.Client()
-client_token = 'NjczOTkwMTc0NTkzNjQ2NjIz.XkV3Jg.Azv5asgwBvGe0Xe22auvNDZx-Yk'
 command_prefix = '>'
 
 
 @client.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+    print('Logged in as {0.user}'.format(client))
 
 
 @client.event
@@ -19,4 +23,4 @@ async def on_message(message):
         await message.channel.send('I am the bone of my sword')
 
 
-client.run(client_token)
+client.run(bot_token)

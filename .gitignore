@@ -90,5 +90,11 @@ fabric.properties
 .idea/**/markdown-navigator.xml
 .idea/**/markdown-navigator/
 
+# Config
+auth.json
+
+# Virtual Envs
+venv/
+
 # End of https://www.gitignore.io/api/pycharm
 
