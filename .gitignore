@@ -91,7 +91,7 @@ fabric.properties
 .idea/**/markdown-navigator/
 
 # Config
-auth.json
+bot.json
 
 # Virtual Envs
 venv/
