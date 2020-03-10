@@ -1,8 +1,7 @@
 import json
 import logging
-import os
 from io import FileIO
-from random import randint
+import imagerandomizer
 
 import discord
 
@@ -56,7 +55,7 @@ async def on_message(message):
             await message.channel.send(chant)
 
         elif cmd == 'rin':
-            await message.channel.send(file=image())
+            await message.channel.send(file=imagerandomizer.image())
 
         elif cmd == 'embed':
             embed = discord.Embed(title='Unlimited Blade Works', color=discord.Colour.red())
@@ -69,17 +68,6 @@ async def on_message(message):
         if cmd == 'ping':
             await message.channel.send('You are the bone of my sword')
             return
-
-
-# TODO store in different file/class
-def image():
-    dir_path = 'img/'
-    nr_of_items = len(os.listdir(dir_path))
-    # img_nr = randint(0, nr_of_items - 1)
-    img_path = dir_path + 'rin' + str(randint(0, nr_of_items - 1)) + '.png'
-    img = discord.File(img_path)
-
-    return img
 
 
 client.run(bot_token)
