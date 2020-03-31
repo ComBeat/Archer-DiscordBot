@@ -1,5 +1,7 @@
 import json
 import logging
+import os
+import sys
 from io import FileIO
 import imagerandomizer
 
@@ -65,9 +67,14 @@ async def on_message(message):
 
     elif message.content.startswith(dev_command_prefix) and message.author == dev_user:
         cmd = message.content[len(dev_command_prefix):]
-        if cmd == 'ping':
-            await message.channel.send('You are the bone of my sword')
+        if cmd == 'restart':
+            await message.channel.send('Restarting connection...')
+            os.execl(sys.executable, sys.executable, *sys.argv)
             return
+
+        elif cmd == 'close':
+            await message.channel.send('Closing connection...')
+            await client.close()
 
 
 client.run(bot_token)
